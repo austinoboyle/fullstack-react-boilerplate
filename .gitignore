@@ -1,0 +1,7 @@
+client/node_modules/
+dist/
+server/node_modules/
+client/build/
+*.map
+*.bundle.*
+server/.env

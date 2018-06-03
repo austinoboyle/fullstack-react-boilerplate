@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "start": "node server.bundle.js",
+        "build": "yarn build:client && yarn build:server && yarn package",
+        "build:client": "cd client && yarn build && cd -",
+        "build:server": "cd server && yarn build && cd -",
+        "package": "./misc/scripts/package.sh"
+    }
+}
