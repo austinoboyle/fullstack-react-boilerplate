@@ -168,9 +168,6 @@ module.exports = {
                             Object.assign(
                                 {
                                     use: [
-                                        require.resolve(
-                                            "../../server/loaders/print-module.js"
-                                        ),
                                         {
                                             loader: require.resolve(
                                                 "css-loader"
