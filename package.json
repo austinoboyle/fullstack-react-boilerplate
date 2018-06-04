@@ -4,6 +4,8 @@
         "build": "yarn build:client && yarn build:server && yarn package",
         "build:client": "cd client && yarn build && cd -",
         "build:server": "cd server && yarn build && cd -",
+        "test:server": "cd server && yarn test",
+        "test:client": "cd client && yarn test",
         "package": "./misc/scripts/package.sh"
     }
 }
