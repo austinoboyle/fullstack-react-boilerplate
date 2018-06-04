@@ -3,5 +3,6 @@ dist/
 server/node_modules/
 client/build/
 *.map
+*.log
 *.bundle.*
 server/.env
