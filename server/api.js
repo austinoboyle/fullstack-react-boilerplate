@@ -3,7 +3,7 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 
-const exampleRouter = require("./routers/example.router");
+const todoRouter = require("./routers/todo.router");
 
 var app = express();
 
@@ -14,6 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/example", exampleRouter);
+app.use("/todo", todoRouter);
 
 module.exports = app;
