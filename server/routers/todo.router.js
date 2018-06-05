@@ -10,5 +10,5 @@ router
 router
     .route("/:id")
     .get(todoController.getTodo)
-    .put(todoController.completeTodo)
+    .put(todoController.toggleCompleted)
     .delete(todoController.deleteTodo);
