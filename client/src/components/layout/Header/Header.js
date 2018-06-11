@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar, MenuItem, NavItem, NavDropdown } from "react-bootstrap";
 import { Container as UIContainer } from "semantic-ui-react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, NavLink } from "react-router-dom";
 
 const Header = ({ history, location }) => {
     const navigateTo = (e, route) => {
@@ -23,13 +23,10 @@ const Header = ({ history, location }) => {
                     <Nav>
                         <NavItem
                             eventKey={1}
-                            href="/about"
-                            onClick={e => navigateTo(e, "/about")}
+                            href="/todos"
+                            onClick={e => navigateTo(e, "/todos")}
                         >
-                            About
-                        </NavItem>
-                        <NavItem eventKey={2} href="#">
-                            Link
+                            Todos
                         </NavItem>
                         <NavDropdown
                             eventKey={3}
