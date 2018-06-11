@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar, MenuItem, NavItem, NavDropdown } from "react-bootstrap";
 import { Container as UIContainer } from "semantic-ui-react";
-import { Link, withRouter, NavLink } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const Header = ({ history, location }) => {
     const navigateTo = (e, route) => {
