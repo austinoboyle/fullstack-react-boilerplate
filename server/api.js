@@ -7,8 +7,14 @@ const todoRouter = require("./routers/todo.router");
 
 var app = express();
 
+let CONNECTION_URI = "mongodb://localhost/todos";
+if (process.env.NODE_ENV === "production") {
+    const { MONGO_USER, MONGO_PASS, MONGO_URL } = process.env;
+    CONNECTION_URI = `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL}`;
+}
+
 mongoose
-    .connect("mongodb://localhost/todos")
+    .connect(CONNECTION_URI)
     .then(() => console.log("Connected to DB"))
     .catch(e => console.error(e));
 
