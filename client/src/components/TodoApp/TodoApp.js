@@ -8,7 +8,8 @@ import {
     toggle,
     destroy,
     save,
-    clearCompleted
+    clearCompleted,
+    fetchTodos
 } from "../../actions/todoActions";
 import { ACTIVE_TODOS, COMPLETED_TODOS } from "../../utils";
 const ENTER_KEY = 13;
@@ -21,6 +22,10 @@ export class TodoApp extends Component {
             newTodo: ""
         };
     }
+
+    componentDidMount = () => {
+        this.props.fetchTodos();
+    };
 
     handleChange = event => {
         this.setState({ newTodo: event.target.value });
@@ -43,7 +48,8 @@ export class TodoApp extends Component {
 
     toggleAll = event => {
         let checked = event.target.checked;
-        this.props.toggleAll();
+        console.log("CHECKED", checked);
+        this.props.toggleAll(checked);
     };
 
     toggle = todoToToggle => {
@@ -92,7 +98,7 @@ export class TodoApp extends Component {
         let todoItems = shownTodos.map(function(todo) {
             return (
                 <TodoItem
-                    key={todo.id}
+                    key={todo._id}
                     todo={todo}
                     onToggle={this.toggle.bind(this, todo)}
                     onDestroy={() => this.destroy(todo)}
@@ -169,7 +175,11 @@ const actions = {
     toggle,
     destroy,
     save,
-    clearCompleted
+    clearCompleted,
+    fetchTodos
 };
 
-export default connect(mapStateToProps, actions)(TodoApp);
+export default connect(
+    mapStateToProps,
+    actions
+)(TodoApp);
