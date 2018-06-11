@@ -30,7 +30,7 @@ const TodoFooter = ({
             </span>
             <ul className="filters">
                 {filters.map(type => (
-                    <li>
+                    <li key={type}>
                         <button
                             className={ccn({ selected: nowShowing === type })}
                             onClick={() => updateFilter(type)}
@@ -47,4 +47,7 @@ const TodoFooter = ({
 
 const actions = { updateFilter };
 
-export default connect(null, actions)(TodoFooter);
+export default connect(
+    null,
+    actions
+)(TodoFooter);
