@@ -17,8 +17,8 @@ exports.getTodo = (req, res) => {
 
 exports.addTodo = (req, res) => {
     const todo = req.body;
+    console.log("TODO", todo);
     Todos.create(todo)
-        .exec()
         .then(todo => res.json(todo))
         .catch(e => res.send(e));
 };
@@ -31,16 +31,28 @@ exports.deleteTodo = (req, res) => {
         .catch(e => res.send(e));
 };
 
-exports.toggleCompleted = (req, res) => {
+exports.updateTodo = (req, res) => {
     const id = req.params.id;
-    Todos.findByIdAndUpdate(id)
+    Todos.findByIdAndUpdate(id, req.body)
         .exec()
-        .then(todo => {
-            if (todo) {
-                todo.completed = !todo.completed;
-                return todo.save();
-            }
-        })
         .then(newTodo => res.json(newTodo))
+        .catch(e => res.send(e));
+};
+
+exports.clearCompleted = (req, res) => {
+    Todos.deleteMany({ completed: true })
+        .exec()
+        .then(deleted => res.json({ success: true, deleted }))
+        .catch(e => res.send(e));
+};
+
+exports.toggleAll = (req, res) => {
+    const toggleTo = req.body.toggleTo;
+    if (toggleTo === undefined || toggleTo === null) {
+        return res.status(500).send();
+    }
+    Todos.updateMany({ completed: !toggleTo }, { completed: toggleTo })
+        .exec()
+        .then(newTodos => res.json(newTodos))
         .catch(e => res.send(e));
 };

@@ -7,8 +7,11 @@ router
     .get(todoController.getAllTodos)
     .post(todoController.addTodo);
 
+router.post("/toggleAll", todoController.toggleAll);
+router.post("/clearCompleted", todoController.clearCompleted);
+
 router
     .route("/:id")
     .get(todoController.getTodo)
-    .put(todoController.toggleCompleted)
+    .put(todoController.updateTodo)
     .delete(todoController.deleteTodo);
