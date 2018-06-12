@@ -8,19 +8,23 @@ import reducers from "../client/src/reducers";
 import App from "../client/src/App";
 
 const handleLoad = (req, res) => {
-    console.log("CALLING HANDELOAD FOR:", req.url);
-    let context = {};
-    let initialState = {};
-    const store = createStore(reducers, initialState);
-    const app = (
-        <Provider store={store}>
-            <StaticRouter location={req.url} context={context}>
-                <App />
-            </StaticRouter>
-        </Provider>
-    );
-    const component = renderToString(app);
-    res.render("index", { component });
+    try {
+        console.log("CALLING HANDELOAD FOR:", req.url);
+        let context = {};
+        const store = createStore(reducers);
+        const app = (
+            <Provider store={store}>
+                <StaticRouter location={req.url} context={context}>
+                    <App />
+                </StaticRouter>
+            </Provider>
+        );
+        const component = renderToString(app);
+        console.log("COMPONENT", component);
+        res.render("index", { component });
+    } catch (e) {
+        console.error("ERROR", e);
+    }
 };
 
 export default handleLoad;
