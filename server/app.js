@@ -11,7 +11,7 @@ const handleLoad = require("./handleLoad").default;
 let app = express();
 
 const apiProxy = httpProxy.createProxyServer({
-    target: "http://localhost:" + String(Number(process.env.PORT + 1) || 3001)
+    target: "http://localhost:" + String(Number(process.env.PORT) + 1) || 3001
 });
 
 app.use("/api", (req, res) => {
