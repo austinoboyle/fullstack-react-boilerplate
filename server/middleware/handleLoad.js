@@ -9,7 +9,6 @@ import App from "../client/src/App";
 
 const handleLoad = (req, res) => {
     try {
-        console.log("CALLING HANDELOAD FOR:", req.url);
         let context = {};
         const store = createStore(reducers);
         const app = (
@@ -20,7 +19,6 @@ const handleLoad = (req, res) => {
             </Provider>
         );
         const component = renderToString(app);
-        console.log("COMPONENT", component);
         res.render("index", { component });
     } catch (e) {
         console.error("ERROR", e);
