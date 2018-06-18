@@ -13,11 +13,11 @@ is designed to make creating these apps quicker in the future.
 
 ### Starting the Application (Development)
 
-1. `$ yarn && cd client && yarn && cd -`
-2. Set Appropriate environment variables in `client/.env` & `server/.env` file (see `.env.example`)
+1. Clone and run `$ yarn` from project root
+2. Set Appropriate environment variables in `server/.env` file (see `.env.example`)
 3. Run MongoDB on your local system [see instructions here](https://docs.mongodb.com/manual/administration/install-community/)
-4. Run `$ yarn start:dev` from `/server`
-5. Run `$ yarn start` from `/client`
+4. Run `$ yarn start:dev` from project root.  This will run both the client and
+   server in development mode.
 
 ### Building the Apps for Production
 
