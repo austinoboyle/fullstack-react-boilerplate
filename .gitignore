@@ -6,3 +6,4 @@ client/build/
 *.log
 *.bundle.*
 server/.env
+server/coverage
