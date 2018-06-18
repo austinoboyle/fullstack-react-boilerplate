@@ -6,7 +6,7 @@ let cookieParser = require("cookie-parser");
 let bodyParser = require("body-parser");
 const httpProxy = require("http-proxy");
 
-const handleLoad = require("./handleLoad").default;
+const handleLoad = require("./middleware/handleLoad").default;
 
 let app = express();
 
