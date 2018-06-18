@@ -1,6 +1,11 @@
 {
     "scripts": {
         "start": "node server.bundle.js",
+        "start:dev": "concurrently \"yarn install:client && yarn start:client\" \"yarn install:server && yarn start:server\" ",
+        "install:client": "cd client && yarn && cd -",
+        "install:server": "cd server && yarn && cd -",
+        "start:client": "cd client && yarn start",
+        "start:server": "cd server && yarn start:dev",
         "build": "yarn build:client && yarn build:server && yarn package",
         "build:client": "cd client && yarn build && cd -",
         "build:server": "cd server && yarn build && cd -",
@@ -9,5 +14,8 @@
         "test:client": "cd client && yarn test",
         "package": "./misc/scripts/package.sh",
         "package:dev": "./misc/scripts/packageDev.sh"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.1"
     }
 }
