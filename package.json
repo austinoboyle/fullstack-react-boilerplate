@@ -16,6 +16,8 @@
         "package:dev": "./misc/scripts/packageDev.sh"
     },
     "devDependencies": {
-        "concurrently": "^3.5.1"
+        "concurrently": "^3.5.1",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1"
     }
 }
