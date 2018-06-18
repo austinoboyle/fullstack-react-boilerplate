@@ -1,4 +1,5 @@
 #!/bin/bash
+#This file is used to package the app for testing production builds (staging)
 rm -rf dist/client dist/views &&
 mkdir -p dist/client &&
 cp -r server/views server/package.json dist &&
