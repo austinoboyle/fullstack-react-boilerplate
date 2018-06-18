@@ -28,6 +28,13 @@ const Header = ({ history, location }) => {
                         >
                             Todos
                         </NavItem>
+                        <NavItem
+                            eventKey={1}
+                            href="/about"
+                            onClick={e => navigateTo(e, "/about")}
+                        >
+                            About
+                        </NavItem>
                         <NavDropdown
                             eventKey={3}
                             title="Dropdown"

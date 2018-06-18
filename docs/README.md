@@ -83,6 +83,7 @@ Run using `$ yarn build` from project root.
 ├── routers: `api route definitions`
 ├── middleware: `custom middleware for routes`
 ├── views: `view files for production app`
+├── loaders: `custom webpack loaders`
 ├── app.js: `main express app, on '/' route`
 ├── api.js: `separate express app for your api, proxied to /api route of main app`
 ├── webpack.config.js: `server webpack build config`
