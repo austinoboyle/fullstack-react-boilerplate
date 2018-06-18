@@ -7,3 +7,4 @@ client/build/
 *.bundle.*
 server/.env
 server/coverage
+node_modules/
