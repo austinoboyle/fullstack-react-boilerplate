@@ -5,7 +5,8 @@
     "scripts": {
         "start": "node server.bundle.js",
         "start:dev": "NODE_ENV=development nodemon ./bin/www.js",
-        "build": "NODE_ENV=production webpack"
+        "build": "NODE_ENV=production webpack",
+        "test": "NODE_ENV=test jest --watch"
     },
     "dependencies": {
         "babel-preset-es2015": "^6.24.1",
@@ -36,17 +37,31 @@
         "babel-preset-env": "^1.7.0",
         "babel-preset-react-app": "^3.1.1",
         "css-loader": "^0.28.11",
+        "jest-mongoose-mock": "^1.1.3",
         "node-sass": "^4.9.0",
         "postcss-flexbugs-fixes": "^3.3.1",
         "postcss-loader": "^2.1.5",
         "postcss-modules": "^1.1.0",
         "sass-loader": "^7.0.1",
         "style-loader": "^0.21.0",
+        "supertest": "^3.1.0",
         "webpack-node-externals": "^1.7.2"
     },
     "babel": {
         "presets": [
             "react-app"
         ]
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "!{api,app}.js",
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/vendor/**",
+            "!{loaders,bin,coverage}/**",
+            "!**/*.config.js"
+        ],
+        "sourceType": "module"
     }
 }
