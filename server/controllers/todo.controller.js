@@ -3,7 +3,9 @@ const Todos = require("../models/Todo.model");
 exports.getAllTodos = (req, res) => {
     Todos.find({})
         .exec()
-        .then(todos => res.json(todos))
+        .then(todos => {
+            res.json(todos);
+        })
         .catch(e => res.send(e));
 };
 
@@ -17,10 +19,9 @@ exports.getTodo = (req, res) => {
 
 exports.addTodo = (req, res) => {
     const todo = req.body;
-    console.log("TODO", todo);
     Todos.create(todo)
         .then(todo => res.json(todo))
-        .catch(e => res.send(e));
+        .catch(e => res.status(400).send(e));
 };
 
 exports.deleteTodo = (req, res) => {
@@ -33,7 +34,7 @@ exports.deleteTodo = (req, res) => {
 
 exports.updateTodo = (req, res) => {
     const id = req.params.id;
-    Todos.findByIdAndUpdate(id, req.body)
+    Todos.findByIdAndUpdate(id, req.body, { new: true })
         .exec()
         .then(newTodo => res.json(newTodo))
         .catch(e => res.send(e));
@@ -53,6 +54,6 @@ exports.toggleAll = (req, res) => {
     }
     Todos.updateMany({ completed: !toggleTo }, { completed: toggleTo })
         .exec()
-        .then(newTodos => res.json(newTodos))
+        .then(updated => res.json(updated))
         .catch(e => res.send(e));
 };
