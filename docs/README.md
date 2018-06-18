@@ -15,8 +15,9 @@ is designed to make creating these apps quicker in the future.
 
 1. `$ yarn && cd client && yarn && cd -`
 2. Set Appropriate environment variables in `client/.env` & `server/.env` file (see `.env.example`)
-3. Run `$ yarn start:dev` from `/server`
-4. Run `$ yarn start` from `/client`
+3. Run MongoDB on your local system [see instructions here](https://docs.mongodb.com/manual/administration/install-community/)
+4. Run `$ yarn start:dev` from `/server`
+5. Run `$ yarn start` from `/client`
 
 ### Building the Apps for Production
 
