@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TodoItem from "../TodoItem/TodoItem";
-import TodoFooter from "../TodoFooter/TodoFooter";
+import TodoItem from "../../TodoItem/TodoItem";
+import TodoFooter from "../../TodoFooter/TodoFooter";
 import { connect } from "react-redux";
 import {
     addTodo,
@@ -10,8 +10,8 @@ import {
     save,
     clearCompleted,
     fetchTodos
-} from "../../actions/todoActions";
-import { ACTIVE_TODOS, COMPLETED_TODOS } from "../../utils";
+} from "../../../actions/todoActions";
+import { ACTIVE_TODOS, COMPLETED_TODOS } from "../../../utils";
 const ENTER_KEY = 13;
 
 export class TodoApp extends Component {
