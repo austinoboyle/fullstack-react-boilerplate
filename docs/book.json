@@ -1,5 +1,5 @@
 {
-    "plugins": ["api", "hints", "todo", "page-toc"],
+    "plugins": ["api", "hints", "todo"],
     "pluginsConfig": {
         "page-toc": {
             "selector":
