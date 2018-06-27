@@ -8,3 +8,4 @@ client/build/
 server/.env
 server/coverage
 node_modules/
+docs/_book/
