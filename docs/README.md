@@ -1,10 +1,11 @@
 # Introduction
 
 ---
-description: >-
-  This is a full-stack React template that uses Node/Express on the backend, and
+
+This is a full-stack React template that uses Node/Express on the backend, and
 React/Redux/React Router on the front-end. It is still a work in progress, but
 is designed to make creating these apps quicker in the future.
+
 ---
 
 # Full-Stack-React-Template
@@ -13,35 +14,35 @@ is designed to make creating these apps quicker in the future.
 
 ### Starting the Application (Development)
 
-1. Clone and run `$ yarn` from project root
-2. Set Appropriate environment variables in `server/.env` file (see `.env.example`)
-3. Run MongoDB on your local system [see instructions here](https://docs.mongodb.com/manual/administration/install-community/)
-4. Run `$ yarn start:dev` from project root.  This will run both the client and
-   server in development mode.
+1.  Clone and run `$ yarn` from project root
+2.  Set Appropriate environment variables in `server/.env` file (see `.env.example`)
+3.  Run MongoDB on your local system [see instructions here](https://docs.mongodb.com/manual/administration/install-community/)
+4.  Run `$ yarn start:dev` from project root. This will run both the client and
+    server in development mode.
 
 ### Building the Apps for Production
 
 Building the apps consists of transpiling the server and client code, and then
-moving/copying files into a `/dist` folder in the project root.  This folder is
+moving/copying files into a `/dist` folder in the project root. This folder is
 made so that it can be directly deployed to a hosting provider like Heroku, AWS,
-Bluemix, etc.  `/client` and `/server` each have their own `package.json` with a
-build command.  The project root has a `package.json` with a build command that
+Bluemix, etc. `/client` and `/server` each have their own `package.json` with a
+build command. The project root has a `package.json` with a build command that
 calls these two scripts, and then packages the files into the `/dist` folder.
 Run using `$ yarn build` from project root.
 
 ### Project Info
 
-*   **Repository:** [Full Stack React Boilerplate](https://github.com/austinoboyle/fullstack-react-boilerplate)
-*   **Main Developers**: Austin
+-   **Repository:** [Full Stack React Boilerplate](https://github.com/austinoboyle/fullstack-react-boilerplate)
+-   **Main Developers**: Austin
 
 ### Front End
 
-*   **Framework:** React/Redux/React-Router
-*   **Bootstrapped with:** create-react-app
-*   **Build:** Webpack
-*   **Styles:**
-    *   scss modules
-    *   postcss
+-   **Main Tools:** [React](https://reactjs.org/)/[Redux](https://redux.js.org/)/[React-Router](https://github.com/ReactTraining/react-router)
+-   **Bootstrapped with:** [create-react-app](https://github.com/facebook/create-react-app)
+-   **Build:** [Webpack](https://webpack.js.org/)
+-   **Styles:**
+    -   [scss modules](https://github.com/css-modules/css-modules)
+    -   [postcss + autoprefixer](https://github.com/postcss/postcss)
 
 #### Directory Structure
 
@@ -70,10 +71,10 @@ Run using `$ yarn build` from project root.
 
 ### Back End
 
-*   **Server:** Node/Express
-*   **Database:** MongoDB @mlab
-*   **Bootstrapped with:** Express Generator
-*   **Build:** Webpack
+-   **Server:** [Node/Express](https://expressjs.com/en/api.html)
+-   **Database:** MongoDB @ [mlab](https://mlab.com/)
+-   **Bootstrapped with:** [Express Generator](https://www.npmjs.com/package/express-generator)
+-   **Build:** [Webpack](https://webpack.js.org/)
 
 #### Directory Structure
 
@@ -119,12 +120,12 @@ Returns an array with all todos in the db
 
 ```javascript
 [
-  { 
+  {
     _id: 'fdjsfdsa098123890a`,
     name: "Eat Vegetables",
     completed: 'False'
   },
-  { 
+  {
     _id: 'fdjsfdsa0981238902`,
     name: "Buy Groceries",
     completed: 'False'
@@ -145,16 +146,15 @@ Returns an array with all todos in the db
 
 ### Response
 
-Returns db object with name, completed, and _id
+Returns db object with name, completed, and \_id
 
 ```javascript
-{ 
+{
     _id: 'fdjsfdsa098123890a`,
     name: "Eat Vegetables",
     completed: 'False'
 }
 ```
-
 
 {% endapi %}
 
@@ -171,7 +171,7 @@ Returns db object with name, completed, and _id
 Returns todo object corresponding to the id
 
 ```javascript
-{ 
+{
     _id: 'fdjsfdsa098123890a`,
     name: "Eat Vegetables",
     completed: 'False'
@@ -179,7 +179,6 @@ Returns todo object corresponding to the id
 ```
 
 {% endapi %}
-
 
 {% api "updateTodo", method="PUT", url="/api/comparisons/:id" %}
 
@@ -201,7 +200,7 @@ Update a todo in the db
 ### Response
 
 ```javascript
-{ 
+{
     _id: 'fdjsfdsa098123890a`,
     name: "Updated Todo",
     completed: 'True'
@@ -227,14 +226,13 @@ Delete a Todo by id
     success: true,
     deleted: {...}
 }
-
 ```
 
 {% endapi %}
 
 {% api "toggleAll", method="POST", url="/api/todos/toggleAll" %}
 
-Toggle all todos` completed attribute to either `true` or `false`.
+Toggle all todos`completed attribute to either`true`or`false`.
 
 ### Request Body Parameters
 
@@ -253,7 +251,6 @@ Toggle all todos` completed attribute to either `true` or `false`.
 
 {% endapi %}
 
-
 {% api "clearCompleted", method="POST", url="/api/todos/clearCompleted" %}
 
 Delete all completed todos
@@ -269,56 +266,57 @@ Delete all completed todos
 
 {% endapi %}
 
-
 ### Testing
 
-We test our apps using [Jest](https://facebook.github.io/jest/).  Jest is great
-for both front-end and back-end tests.  To run the front-end/back-end tests,
+We test our apps using [Jest](https://facebook.github.io/jest/). Jest is great
+for both front-end and back-end tests. To run the front-end/back-end tests,
 change into `/client` or `server` respectively, and run `$ yarn test`.
 
-#### Front-End Unit Tests 
+#### Front-End Unit Tests
+
 For unit testing the React App, we use Jest with
-[Enzyme](https://github.com/airbnb/enzyme).  Enzyme provides great utilities for
+[Enzyme](https://github.com/airbnb/enzyme). Enzyme provides great utilities for
 testing React Components.
 
-*   **Test File Location:** `/client/src/folder/[moduleName].test.js`
-    *   Component tests go in the same folder as the component!
+-   **Test File Location:** `/client/src/folder/[moduleName].test.js`
+    -   Component tests go in the same folder as the component!
 
 #### Integration Tests
 
 Integration tests are used to test different parts of the application working in
-unison.  When making back-end integration tests, we are looking to make sure the
+unison. When making back-end integration tests, we are looking to make sure the
 proper controllers, mongoose models, etc get called when we make a request to a
 certain route.
 
 **Test File Location:** `/server/__tests__/name.integration.test.js`
 
-
 #### Back-end Unit Tests
 
 I have personally found that unit-testing many parts of the back-end is
-extremely cumbersome.  You end up writing so many mocks/stubs for functions that
-work trivially.  There are times where it makes sense to unit test the back-end
+extremely cumbersome. You end up writing so many mocks/stubs for functions that
+work trivially. There are times where it makes sense to unit test the back-end
 (certainly for any pure functions, mongoose schema validation, etc), but it is
 often a lot easier and more beneficial to write integration tests.
 
 If you are going to unit-test the back-end, here are some of my recommendations:
 
 **Controllers:**
-* When testing controllers, you will want to use a library to mock the mongoose
-  models being called.  Libraries that do this are `jest-mongoose-mock` and
-  `mockgoose`.
+
+-   When testing controllers, you will want to use a library to mock the mongoose
+    models being called. Libraries that do this are `jest-mongoose-mock` and
+    `mockgoose`.
 
 **Models:**
-* Testing model validation schemes is fairly easy, you can just create a new
-  instance of the model & call instance.validate, and then check for errors.
-* Testing instance methods is a little bit more involved.  You will likely have
-  to stub/mock parts of the Model.  See [this
-  article](https://codeutopia.net/blog/2016/06/10/mongoose-models-and-unit-tests-the-definitive-guide/)
-  for more details
-  
-**Routes/Route Middleware:**
-* Libraries like [supertest](https://github.com/visionmedia/supertest) make it
-  pretty easy to test your APIs.  You will need to stub/mock your controllers to
-  unit test these components.
 
+-   Testing model validation schemes is fairly easy, you can just create a new
+    instance of the model & call instance.validate, and then check for errors.
+-   Testing instance methods is a little bit more involved. You will likely have
+    to stub/mock parts of the Model. See [this
+    article](https://codeutopia.net/blog/2016/06/10/mongoose-models-and-unit-tests-the-definitive-guide/)
+    for more details
+
+**Routes/Route Middleware:**
+
+-   Libraries like [supertest](https://github.com/visionmedia/supertest) make it
+    pretty easy to test your APIs. You will need to stub/mock your controllers to
+    unit test these components.
